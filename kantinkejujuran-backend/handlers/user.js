@@ -16,7 +16,8 @@ async function findUser(id, password) {
 
 /* Registration */
 // Method to validate registration input
-async function validateInput(body) {
+async function validateInput(isRegister, body) {
+  if (!body) return false;
   if (!body.id || !body.password) return false;
   
   const { id, password } = body;
@@ -24,10 +25,14 @@ async function validateInput(body) {
   if (typeof id !== 'string' && typeof password !== 'string') return false;
   if (!isNumeric(id)) return false;
   if (!(id.length === 5)) return false;
-  if (generateCheckSum(id.splice(0, 3)) !== id) return false;
+  if (generateCheckSum(id.slice(0, 3)) !== id) return false;
   
-  const userExists = await checkUser(id);
-  return !userExists;
+  if (isRegister) {
+    const userExists = await checkUser(id);
+    return !userExists;
+  } else {
+    return true;
+  }
 }
 
 // Method to register user
@@ -58,12 +63,12 @@ function isNumeric(str) {
 }
 
 function generateCheckSum(id) {
-  id = parseInt(id);
+  tempId = parseInt(id);
   
   let sum = 0;
-  while (id > 0) {
-    sum += id % 10;
-    id /= 10;
+  while (tempId > 0) {
+    sum += tempId % 10;
+    tempId = Math.floor(tempId/10);
   }
   
   sum = sum.toString();
@@ -71,7 +76,8 @@ function generateCheckSum(id) {
     sum = '0' + sum;
   }
   
-  return sum;
+  const ret = id.toString() + sum;
+  return ret;
 }
 
 module.exports = {

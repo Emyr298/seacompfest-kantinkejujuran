@@ -4,9 +4,11 @@ require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const multer = require('multer');
+const cors = require('cors');
 
 // Routers
+const registerRouter = require('./routes/register');
+const sessionRouter = require('./routes/session');
 
 // Database
 const mongoose = require('mongoose');
@@ -14,6 +16,11 @@ const mongoose = require('mongoose');
 async function startUp() {
   await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
   
+  app.use(cors({
+    origin: 'http://localhost:3000', //temporary
+    methods: ['POST', 'PUT', 'GET', 'DELETE'],
+    credentials: true,
+  }));
   app.use(express.json({ limit: '5mb' }));
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
@@ -26,7 +33,8 @@ async function startUp() {
   }));
   
   // Routers
-  // app.use('/route1', Route1Router)
+  app.use('/register', registerRouter);
+  app.use('/session', sessionRouter);
   
   // Error Handlers
   app.use(function(err, req, res, next) {
@@ -36,6 +44,8 @@ async function startUp() {
     res.status(err.status || 500);
     res.send(err.message);
   });
+  
+  app.listen(process.env.PORT);
 }
 
 const app = express();
