@@ -12,6 +12,8 @@ import {
 import NavigationBar from './containers/NavigationBar';
 import Session from './containers/Session';
 import Popup from './containers/Popup';
+import Products from './containers/Products';
+import Balance from './containers/Balance';
 
 import sessionHandler from './handlers/session';
 
@@ -103,7 +105,7 @@ class AppNoNavigate extends React.Component {
                   handleLogin={this.handleLogin}
                   handleRegister={this.handleRegister}
                 />
-              }/>
+              } />
               <Route path="/register" element={
                 <Session
                   isLogin="false"
@@ -114,7 +116,17 @@ class AppNoNavigate extends React.Component {
                   handleLogin={this.handleLogin}
                   handleRegister={this.handleRegister}
                 />
-              }/>
+              } />
+              <Route path="/" element={
+                <div></div>
+              } />
+              <Route path="/balance" element={
+                <Balance
+                  studentId={this.state.studentId}
+                  navigate={this.props.navigate}
+                  warningHandler={this.handleWarning}
+                />
+              } />
             </Routes>
           </main>
           <Popup message={this.state.popupMessage} handleClose={this.handleClosePopup} />

@@ -16,7 +16,7 @@ class TextInput extends React.Component {
         <input
           id={this.props.id}
           className={this.classes}
-          type={this.props.type === 'Password' ? 'password' : 'text'}
+          type={this.props.type.toLowerCase()}
           value={this.props.value}
           placeholder={this.props.placeholder}
           onChange={this.props.onChange}

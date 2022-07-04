@@ -1,9 +1,20 @@
+const { LEGAL_TLS_SOCKET_OPTIONS } = require('mongodb');
 const mongoose = require('mongoose');
 const db = require('../models/merge');
 
 // Method to get balance
 async function getBalance() {
-  const globalValues = await db.Global.findOne({}).lean();
+  let globalValues = await db.Global.findOne({}).lean();
+  
+  
+  if (!globalValues) {
+    globalValues = new db.Global({
+      balance: 0,
+    });
+    
+    await globalValues.save();
+  }
+  
   return globalValues.balance;
 }
 
@@ -62,4 +73,4 @@ function isNumeric(str) {
   return flag;
 }
 
-module.exports = { validateInput, addBalance, withdrawBalance };
+module.exports = { getBalance, validateInput, addBalance, withdrawBalance };

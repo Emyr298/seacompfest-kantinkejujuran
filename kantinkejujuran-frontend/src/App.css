@@ -321,37 +321,37 @@ main {
 }
 
 /* Balance */
-#balance {
+#Balance {
   width: 350px;
-  height: 170px;
+  height: 185px;
   margin: auto;
   
   position: relative;
-  top: calc(50% - 85px);
+  top: calc(50% - 92.5px);
 }
 
-#balance * {
+#Balance * {
   margin-bottom: 10px;
 }
 
-#balance h4, #balance h1 {
+#Balance h4, #Balance h1 {
   text-align: center;
 }
 
-#balance-buttons {
+#Balance-buttons {
   display: flex;
   flex-direction: row;
 }
 
-#balance-buttons * {
+#Balance-buttons * {
   width: 50%;
 }
 
-#balance-add {
+#Balance-add {
   margin-right: 5px;
 }
 
-#balance-withdraw {
+#Balance-withdraw {
   margin-left:5px;
 }
 

@@ -9,6 +9,7 @@ const cors = require('cors');
 // Routers
 const registerRouter = require('./routes/register');
 const sessionRouter = require('./routes/session');
+const balanceRouter = require('./routes/balance');
 
 // Database
 const mongoose = require('mongoose');
@@ -35,6 +36,8 @@ async function startUp() {
   // Routers
   app.use('/register', registerRouter);
   app.use('/session', sessionRouter);
+  app.use('/balance', balanceRouter);
+  
   
   // Error Handlers
   app.use(function(err, req, res, next) {

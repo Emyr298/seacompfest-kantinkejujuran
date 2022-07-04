@@ -3,10 +3,7 @@ const balanceHandler = require('../handlers/balance');
 // Middleware to get balance
 async function getBalance(req, res, next) {
   const balance = await balanceHandler.getBalance();
-  
   res.status(200).json({
-    status: 'success',
-    message: 'fetched balance',
     balance: balance,
   });
 }
@@ -18,8 +15,7 @@ function validateAmount(req, res, next) {
     next();
   } else {
     res.status(400).json({
-      status: 'fail',
-      message: 'amount is invalid',
+      message: 'Amount must be a positive integer.',
     });
   }
 }
@@ -27,26 +23,17 @@ function validateAmount(req, res, next) {
 // Middleware to add to balance
 async function addBalance(req, res, next) {
   await balanceHandler.addBalance(req.body.amount);
-  
-  res.status(200).json({
-    status: 'success',
-    message: `added ${req.body.amount} to canteen's balance`,
-  });
+  res.status(200).json({});
 }
 
 // Middleware to withdraw from balance
 async function withdrawBalance(req, res, next) {
-  const res = await balanceHandler.withdrawBalance(req.body.amount);
-  
-  if (res) {
-    res.status(200).json({
-      status: 'success',
-      message: `withdrawed ${req.body.amount} to canteen's balance`,
-    });
+  const result = await balanceHandler.withdrawBalance(req.body.amount);
+  if (result) {
+    res.status(200).json({});
   } else {
     res.status(400).json({
-      status: 'fail',
-      message: 'withdraw amount is too big',
+      message: 'Canteen\'s balance is not enough.',
     });
   }
 }
