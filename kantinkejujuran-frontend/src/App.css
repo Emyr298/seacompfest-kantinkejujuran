@@ -1,0 +1,528 @@
+:root {
+  font-family: sans-serif;
+  font-size: 16px;
+  
+  --scrollbar-width: 10px;
+  
+  --main-color: #0066CC;
+  --main-color-text: #fcfcfc;
+  --main-color-dark: #004e9c;
+  
+  --nav-bg: #fcfcfc;
+  --content-bg: #fcfcfc;
+  
+  --button-trans-bg: transparent;
+  --button-trans-text: black;
+  --button-trans-hov-bg: #D9D9D9;
+  
+  --button-blue-bg: #0066CC;
+  --button-blue-text: #fcfcfc;
+  --button-blue-hov-bg: #004e9c;
+  
+  --button-red-bg: #ff6363;
+  --button-red-text: #fcfcfc;
+  --button-red-hov-bg: #c14949;
+  
+  --container-radius: 20px;
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+* {
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Navigation */
+#NavigationBar {
+  width: calc(100vw - (100vw - 100%));
+  min-height: 50px;
+  padding: 5px;
+  
+  position: absolute;
+  
+  background-color: var(--nav-bg);
+  box-shadow: 0 0 5px -1.5px;
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#NavigationBar-logo {
+  height: 100%;
+}
+
+#NavigationBar-logo h1 {
+  width: 200px;
+  text-align: center;
+  
+  color: var(--main-color);
+  font-size: 1.5rem;
+  
+  position: relative;
+  top: calc(50% - 0.8rem);
+}
+
+#NavigationBar-body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#NavigationBar-session {
+  width: 200px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: right;
+}
+
+#NavigationBar-session * {
+  margin-right: 5px;
+}
+
+#NavigationBar-session p {
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+#NavigationBar-logout {
+  color: red !important;
+}
+
+#NavigationBar-links {
+  width: calc(100% - 200px);
+  min-width: 200px;
+  padding-left: 10px;
+  
+  cursor: default;
+}
+
+#NavigationBar-body {
+  width: calc(100% - 200px);
+  min-width: 200px;
+}
+
+/* Content */
+main {
+  width: calc(100vw - (100vw - 100%));
+  height: 100vh;
+  padding-top: 50px;
+  background-color: var(--content-bg);
+}
+
+/* Login Register */
+#Session {
+  width: 350px;
+  height: 190px;
+  margin: auto;
+  padding: 0;
+  
+  position: relative;
+  top: calc(50% - 95px);
+}
+
+#Session .Button {
+  display: inline-block;
+  width: 50%;
+}
+
+#Session-login {
+  border-top-left-radius: var(--container-radius);
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#Session-register {
+  border-top-right-radius: var(--container-radius);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#Session-body {
+  padding: 20px;
+}
+
+#Session-studentId, #Session-password {
+  margin-bottom: 10px;
+}
+
+#Session-submit {
+  width: 100% !important;
+  margin-bottom: 5px !important;
+}
+
+/* Products */
+#products {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#products-info {
+  max-width: 300px;
+  height: 450px;
+  margin: 20px 10px 20px 20px;
+  padding: 10px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#products-info * {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#products-info .ProductImage {
+  width: 100%;
+  height: 200px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+#products-info p {
+  height: 50%;
+  overflow-y: scroll;
+}
+
+#products-info .Button {
+  border-radius: 10px;
+}
+
+#products-list {
+  width: calc(100% - 360px);
+  min-width: 300px;
+  height: 80%;
+  margin: 20px 20px 20px 10px;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+#products-list-sort {
+  padding: 5px 10px 9px 10px;
+  margin-bottom: 20px;
+  
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#products-list-sort label {
+  width: 60px;
+  margin-right: 5px
+}
+
+#products-list-sort-data {
+  width: calc(100% - 110px);
+}
+
+#products-list-contents {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  overflow-y: scroll;
+}
+
+#products-list-contents .Container {
+  width: 125px;
+  height: 150px;
+  margin: 5px;
+  padding: 10px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
+  cursor: pointer;
+}
+
+#products-list-contents .ProductImage {
+  width: 100%;
+  height: 60%;
+  
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Add Product */
+#add-product {
+  width: 350px;
+  height: 260px;
+  margin: auto;
+  
+  position: relative;
+  top: calc(50% - 150px);
+}
+
+#add-product * {
+  margin-bottom: 10px;
+}
+
+#add-product h4 {
+  text-align: center;
+}
+
+#add-product p {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+#add-product .FileInput-label {
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+}
+
+#add-product-input-desc {
+  width: 100%;
+  margin-top: 12.5px;
+}
+
+#add-product-input-submit {
+  width: 100%;
+}
+
+/* Balance */
+#balance {
+  width: 350px;
+  height: 170px;
+  margin: auto;
+  
+  position: relative;
+  top: calc(50% - 85px);
+}
+
+#balance * {
+  margin-bottom: 10px;
+}
+
+#balance h4, #balance h1 {
+  text-align: center;
+}
+
+#balance-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+#balance-buttons * {
+  width: 50%;
+}
+
+#balance-add {
+  margin-right: 5px;
+}
+
+#balance-withdraw {
+  margin-left:5px;
+}
+
+/* Popup */
+#Popup {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+
+#Popup-container {
+  width: 300px;
+  height: 350px;
+  
+  position: absolute;
+  top: calc(50% - 175px);
+  left: calc(50% - 150px);
+  z-index: 11;
+}
+
+#Popup-header {
+  width: 100%;
+  display: flex;
+  
+  margin-bottom: 10px;
+}
+
+#Popup-header h2 {
+  width: 90%;
+  text-align: center;
+}
+
+#DimScreen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10; /* Change this */
+}
+
+/** Components **/
+/* Buttons */
+.Button {
+  height: 2rem;
+  padding: 5px;
+  
+  border: none;
+  border-radius: 5px;
+}
+.Button:hover {
+  cursor: pointer;
+}
+
+/* Transparent Variant */
+.Button.TransparentTheme {
+  background-color: transparent;
+  font-weight: bold;
+}
+.Button.TransparentTheme:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Blue Variant */
+.Button.BlueTheme {
+  background-color: var(--button-blue-bg);
+  
+  color: var(--button-blue-text);
+  font-weight: bold;
+}
+.Button.BlueTheme:hover {
+  background-color: var(--button-blue-hov-bg);
+}
+
+/* Red Variant */
+.Button.RedTheme {
+  background-color: var(--button-red-bg);
+  
+  color: var(--button-red-text);
+  font-weight: bold;
+}
+.Button.RedTheme:hover {
+  background-color: var(--button-red-hov-bg);
+}
+
+/* Toggle Buttons */
+.ToggleButton {
+  height: 2rem;
+  padding: 5px;
+  
+  border: none;
+  border-radius: 5px;
+}
+.ToggleButton:hover {
+  cursor: pointer;
+}
+
+.ToggleButton.TransparentTheme.Off {
+  background-color: transparent;
+  font-weight: bold;
+}
+.ToggleButton.TransparentTheme.On {
+  background-color: rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+/* Text Input */
+.TextInput {
+  width: 100%;
+  height: 2rem;
+  
+  padding-left: 5px;
+  padding-right: 5px;
+  
+  border:3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  
+  display: block;
+}
+
+/* Images */
+.Image.Fill {
+  object-fit: fill;
+}
+
+.Image.Cover {
+  object-fit: cover;
+}
+
+/* FileInput */
+.FileInput-label {
+  height: 2rem;
+  padding: 5px;
+  
+  border: none;
+  border-radius: 5px;
+}
+.FileInput-label:hover {
+  cursor: pointer;
+}
+
+.FileInput-label.BlueTheme {
+  background-color: var(--button-blue-bg);
+  
+  color: var(--button-blue-text);
+  font-weight: bold;
+}
+.FileInput-label.BlueTheme:hover {
+  background-color: var(--button-blue-hov-bg);
+}
+
+.FileInput-input {
+  display: none;
+}
+
+/* Text Area */
+.TextArea {
+  padding: 5px;
+  font-family: sans-serif;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  resize: none;
+}
+
+/** Containers **/
+.Container {
+  padding: 10px;
+  
+  border-radius: var(--container-radius);
+  
+  background-color: var(--content-bg);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+}
