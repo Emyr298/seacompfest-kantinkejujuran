@@ -37,7 +37,6 @@ function validateInput(str) {
   return str.length > 0 && isNumeric(str);
 }
 
-// TODO: use transaction to prevent collision between two request at the same time
 // Method to add balance
 async function addBalance(amount) {
   const globalValues = await db.Global.findOne({});

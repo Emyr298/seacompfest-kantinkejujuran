@@ -28,7 +28,7 @@ async function getAllProducts(sorting) {
   return products;
 }
 
-// Method to validate input -> TODO: validate as body, not its attributes
+// Method to validate input
 function validateAddProduct(body, file) {
   if (!body || !file) return false;
   if (!body.productName || !body.productPrice || !file || !body.productDesc) return false;
@@ -89,7 +89,7 @@ async function buyProduct(id) {
 }
 
 /* Helper Methods */
-// Method to generate unique id -> TODO: 2 request at the same time, handle if math.random = 0
+// Method to generate unique id
 async function generateId() {
   let id;
   let product;

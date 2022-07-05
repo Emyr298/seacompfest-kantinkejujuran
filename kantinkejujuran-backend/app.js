@@ -28,7 +28,7 @@ async function startUp() {
   app.use(cookieParser());
   app.use(session({
     secret: process.env.SESSION_SECRET_KEY,
-    store: new session.MemoryStore(), // TODO: change to database
+    store: new session.MemoryStore(),
     expires: new Date(Date.now() + (86400 * 1000)),
     resave: true,
     saveUninitialized: true,
