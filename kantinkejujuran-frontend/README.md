@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Kantin Kejujuran Frontend
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installation
+Use Node Package Manager to install dependencies.
+```bash
+npm install
+```
+
+Create .env file to store environment variables, look at .env.example for example .env file. The .env file must have:
+- REACT_APP_API_URL: URL of API. ex: ```REACT_APP_API_URL="http://localhost:3002"```
+
 ## Available Scripts
+- `npm start`: Runs the app in the development mode ([http://localhost:3000](http://localhost:3000)).
+- `npm test`: Launches the test runner in the interactive watch mode.
+- `npm run build`:  Builds the app for production to the `build` folder.
+- `npm run eject`: __One-way operation!!!__. Removes single build dependency from the project. 
 
-In the project directory, you can run:
+For more information, see [create-react-app available scripts documentation](https://create-react-app.dev/docs/available-scripts/).
 
-### `npm start`
+## Application Usage
+### Register/Login
+Go to login/register page by clicking login/register button in the navigation bar or by going to `/login`/`register`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![image](https://user-images.githubusercontent.com/101683735/177265617-f77ec28b-8bc9-4c3d-a06d-ccb48b8be9d5.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Put a valid student ID and a password, then click the login/register button.
 
-### `npm test`
+![image](https://user-images.githubusercontent.com/101683735/177265917-c5cd1349-4537-4ac8-84a8-c884631786c9.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Logout
+Click the logout button.
 
-### `npm run build`
+![image](https://user-images.githubusercontent.com/101683735/177266401-86a48eb7-41a6-4745-8799-e29108b983d3.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Search for Products
+Go to front page by clicking logo/products button in the navigation bar or by going to `/`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![image](https://user-images.githubusercontent.com/101683735/177266832-42e951d7-d2e8-44e9-8582-1c37c763b08e.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+All available products will be shown in the page. The sorting configuration can be changed with sortBy and Ascend/Descend toggle buttons.
 
-### `npm run eject`
+![image](https://user-images.githubusercontent.com/101683735/177267296-8e4fe305-a466-4e5d-a67c-abc34fd27a4d.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Buy Products
+You need to login in order to buy a product. If you are logged in, click any available product in front page, then a box containing product details and buy button will appear. Click the buy button to buy the product.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![image](https://user-images.githubusercontent.com/101683735/177267738-415d3852-65d0-4d16-9a13-74700f8fec54.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Add/Sell Products
+You need to login in order to add a product. If you are logged in, click `+` button in front page, then you will be redirected to add product page. Fill the form and click the submit button to add product.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![image](https://user-images.githubusercontent.com/101683735/177268208-223d4454-28ff-40d3-b7f7-4442bb2c3204.png)
 
-## Learn More
+![image](https://user-images.githubusercontent.com/101683735/177268230-e0e9bfa6-f16d-472d-8073-dab0a27ba820.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Add/Withdraw Balance
+You need to login in order to add/withdraw balance. If you are logged in, go to balance page by clicking balance button in the navigation bar or by going to `/balance`. Fill the amount then click add/withdraw button to add/withdraw balance.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![image](https://user-images.githubusercontent.com/101683735/177268599-71d621cf-69c2-4a00-a971-0ed86eeb5904.png)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![image](https://user-images.githubusercontent.com/101683735/177268544-e612cdd9-16ae-474a-b568-ed01d7aba8ff.png)
