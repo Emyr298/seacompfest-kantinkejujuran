@@ -7,11 +7,6 @@ Kantin Kejujuran is a simple e-commerce-like web project created for the selecti
 ## Installation and Usage
 Refer to README.md in kantinkejujuran-frontend for the front end and README.md in kantinkejujuran-backend for the back end.
 
-Use Node Package Manager on both __kantinkejujuran-frontend__ and __kantinkejujuran-backend__ directory to install dependencies.
-```bash
-npm install
-```
-
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
