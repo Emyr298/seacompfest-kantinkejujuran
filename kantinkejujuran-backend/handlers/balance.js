@@ -18,22 +18,8 @@ async function getBalance() {
   return globalValues.balance;
 }
 
-// Method to remove ',' and '.' from a string
-function removeCommas(str) {
-  let ret = '';
-  
-  for (let i = 0; i < str.length; i++) {
-    if (!['.', ','].includes(str[i])) {
-      ret += str[i];
-    }
-  }
-  
-  return ret;
-}
-
 // Method to validate input
 function validateInput(str) {
-  str = removeCommas(str);
   return str.length > 0 && isNumeric(str);
 }
 

@@ -15,7 +15,7 @@ function validateAmount(req, res, next) {
     next();
   } else {
     res.status(400).json({
-      message: 'Amount must be a positive integer.',
+      message: 'Amount must be a non-negative integer.',
     });
   }
 }
