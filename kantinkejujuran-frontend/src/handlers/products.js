@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// placholder
-const apiUrl = 'http://localhost:3002';
+const apiUrl = process.env.REACT_APP_API_URL; //'http://localhost:3002';
 const productUrl = apiUrl + '/product';
 
 function getProducts(container, navigate, warningHandler, sortData, sortDirection) {
