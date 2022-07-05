@@ -509,11 +509,11 @@ main {
 }
 
 /* Images */
-.Image.Fill {
+.ProductImage.Fill {
   object-fit: fill;
 }
 
-.Image.Cover {
+.ProductImage.Cover {
   object-fit: cover;
 }
 

@@ -17,7 +17,7 @@ class ProductInfo extends React.Component {
     if (this.props.selectedProduct != null) {
       return (
         <div id="ProductInfo" className="Container">
-          <ProductImage src={`data:${this.props.selectedProduct.image.contentType};base64,${this.props.selectedProduct.image.data}`} />
+          <ProductImage src={`data:${this.props.selectedProduct.image.contentType};base64,${this.props.selectedProduct.image.data}`} fit="Cover" />
           <h4>{this.props.selectedProduct.name}</h4>
           <h3>Rp{this.props.selectedProduct.price}</h3>
           <p id="ProductInfo-desc">

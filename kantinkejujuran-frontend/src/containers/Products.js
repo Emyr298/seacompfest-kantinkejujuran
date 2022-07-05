@@ -14,17 +14,44 @@ class Product extends React.Component {
     super(props);
     
     this.state = {
+      products: [],
+      sortData: 'created',
+      sortDirection: 'ascending',
       selectedProduct: null,
     };
     
-    this.handleGet = this.handleGet.bind(this);
+    this.updateProducts = this.updateProducts.bind(this);
+    this.switchSortData = this.switchSortData.bind(this);
+    this.switchSortDirection = this.switchSortDirection.bind(this);
     this.handleBoxClick = this.handleBoxClick.bind(this);
     this.handleBuy = this.handleBuy.bind(this);
     this.handleAddNavigate = this.handleAddNavigate.bind(this);
   }
   
-  handleGet() {
-    
+  componentDidMount() {
+    this.updateProducts();
+  }
+  
+  updateProducts() {
+    productHandler.getProducts(
+      this,
+      this.props.navigate,
+      this.props.warningHandler,
+      this.state.sortData,
+      this.state.sortDirection,
+    );
+  }
+  
+  switchSortData(data) {
+    this.setState({ sortData: data }, () => {
+      this.updateProducts();
+    });
+  }
+  
+  switchSortDirection(direction) {
+    this.setState({ sortDirection: direction }, () => {
+      this.updateProducts();
+    });
   }
   
   handleBoxClick(productData) {
@@ -64,6 +91,11 @@ class Product extends React.Component {
         <ProductList
           navigate={this.props.navigate}
           warningHandler={this.props.warningHandler}
+          products={this.state.products}
+          sortData={this.state.sortData}
+          sortDirection={this.state.sortDirection}
+          switchSortData={this.switchSortData}
+          switchSortDirection={this.switchSortDirection}
           onProductBoxClick={this.handleBoxClick}
         />
         {this.props.studentId != null &&

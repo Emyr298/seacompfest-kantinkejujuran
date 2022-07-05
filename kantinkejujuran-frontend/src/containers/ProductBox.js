@@ -20,6 +20,7 @@ class ProductInfo extends React.Component {
       <div id={this.props.id} className="Container" onClick={() => {this.props.onClick(this.props.productData)}}>
         <ProductImage
           src={`data:${this.props.productData.image.contentType};base64,${this.props.productData.image.data}`}
+          fit="Cover"
         />
         <h5>{this.props.productData.name}</h5>
         <h4>Rp{this.props.productData.price}</h4>

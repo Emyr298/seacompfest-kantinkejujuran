@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * Props: src, alt
+ * Props: src, alt, fit
  */
 
 class ProductInfo extends React.Component {
@@ -11,7 +11,7 @@ class ProductInfo extends React.Component {
   
   render() {
     return (
-      <img className="ProductImage" src={this.props.src} alt={this.props.alt} />
+      <img className={`ProductImage ${this.props.fit}`} src={this.props.src} alt={this.props.alt} />
     );
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import ToggleButton from '../components/ToggleButton';
 import ProductBox from '../containers/ProductBox';
 
-import productsHandler from '../handlers/products';
+import productHandler from '../handlers/products';
 
 /**
  * Props: navigate, warningHandler, onProductBoxClick
@@ -11,58 +11,15 @@ import productsHandler from '../handlers/products';
 class ProductList extends React.Component {
   constructor(props) {
     super(props);
-    
-    this.state = {
-      products: [],
-      sortData: 'created',
-      sortDirection: 'ascending',
-    };
-    
-    this.switchSortData = this.switchSortData.bind(this);
-    this.switchSortDirection = this.switchSortDirection.bind(this);
-  }
-  
-  componentDidMount() {
-    productsHandler.getProducts(
-      this,
-      this.props.navigate,
-      this.props.warningHandler,
-      this.state.sortData,
-      this.state.sortDirection,
-    );
-  }
-  
-  switchSortData(data) {
-    this.setState({ sortData: data }, () => {
-      productsHandler.getProducts(
-        this,
-        this.props.navigate,
-        this.props.warningHandler,
-        this.state.sortData,
-        this.state.sortDirection,
-      );
-    });
-  }
-  
-  switchSortDirection(direction) {
-    this.setState({ sortDirection: direction }, () => {
-      productsHandler.getProducts(
-        this,
-        this.props.navigate,
-        this.props.warningHandler,
-        this.state.sortData,
-        this.state.sortDirection,
-      );
-    });
   }
   
   render() {
     const productBoxes = [];
-    for (let i = 0; i < this.state.products.length; i++) {
+    for (let i = 0; i < this.props.products.length; i++) {
       productBoxes.push(
         <ProductBox
-          key={this.state.products[i].id}
-          productData={this.state.products[i]}
+          key={this.props.products[i].id}
+          productData={this.props.products[i]}
           onClick={this.props.onProductBoxClick}
         />
       );
@@ -76,32 +33,32 @@ class ProductList extends React.Component {
             <ToggleButton
               id="ProductList-sortDate"
               theme="TransparentTheme"
-              isOn={this.state.sortData === 'created'}
+              isOn={this.props.sortData === 'created'}
               text="Date Created"
-              onOn={() => { this.switchSortData('created') }}
+              onOn={() => { this.props.switchSortData('created') }}
             />
             <ToggleButton
               id="ProductList-sortName"
               theme="TransparentTheme"
-              isOn={this.state.sortData === 'name'}
+              isOn={this.props.sortData === 'name'}
               text="Name"
-              onOn={() => { this.switchSortData('name') }}
+              onOn={() => { this.props.switchSortData('name') }}
             />
           </div>
           <div id="ProductList-sortDirection">
             <ToggleButton
               id="ProductList-sortAsc"
               theme="TransparentTheme"
-              isOn={this.state.sortDirection === 'ascending'}
+              isOn={this.props.sortDirection === 'ascending'}
               text="↑"
-              onOn={() => { this.switchSortDirection('ascending') }}
+              onOn={() => { this.props.switchSortDirection('ascending') }}
             />
             <ToggleButton
               id="ProductList-sortDesc"
               theme="TransparentTheme"
-              isOn={this.state.sortDirection === 'descending'}
+              isOn={this.props.sortDirection === 'descending'}
               text="↓"
-              onOn={() => { this.switchSortDirection('descending') }}
+              onOn={() => { this.props.switchSortDirection('descending') }}
             />
           </div>
         </div>

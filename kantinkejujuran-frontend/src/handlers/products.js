@@ -58,6 +58,7 @@ function buyProduct(container, navigate, warningHandler, productId) {
     withCredentials: true,
   }).then((res) => {
     container.setState({ selectedProduct: null });
+    container.updateProducts();
   }).catch((err) => {
     warningHandler(err.response.data.message);
   });
