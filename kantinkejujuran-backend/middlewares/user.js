@@ -22,7 +22,6 @@ function getLoginInfo(req, res, next) {
   
   res.status(200).json({
     id: id,
-    message: 'test',
   });
 }
 
@@ -43,7 +42,7 @@ async function login(req, res, next) {
   if (user) {
     req.session.userId = req.body.id;
     
-    res.status(200).json({});
+    res.status(200).send();
   } else {
     res.status(404).json({
       message: 'username or password is invalid (not found)',
@@ -53,7 +52,7 @@ async function login(req, res, next) {
 
 function logout(req, res, next) {
   req.session.destroy();
-  res.status(200).json({});
+  res.status(200).send();
 }
 
 /* Registration */
