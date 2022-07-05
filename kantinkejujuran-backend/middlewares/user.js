@@ -7,7 +7,7 @@ function checkLoggedIn(req, res, next) {
     next();
   } else {
     res.status(401).json({
-      message: 'please login first before fetching notes',
+      message: 'Please login first.',
     });
   }
 }
@@ -29,7 +29,7 @@ async function checkLoginValidity(req, res, next) {
   const isValid = await userHandler.validateInput(false, req.body);
   if (!isValid) {
     res.status(400).json({
-      message: 'username or password is invalid',
+      message: 'Username or password is invalid.',
     });
   } else {
     next();
@@ -45,7 +45,7 @@ async function login(req, res, next) {
     res.status(200).send();
   } else {
     res.status(404).json({
-      message: 'username or password is invalid (not found)',
+      message: 'Username or password is invalid.',
     });
   }
 }
@@ -60,7 +60,7 @@ async function checkRegisterValidity(req, res, next) {
   const isValid = await userHandler.validateInput(true, req.body);
   if (!isValid) {
     res.status(400).json({
-      message: 'username or password is invalid',
+      message: 'Username or password is invalid.',
     });
   } else {
     next();
