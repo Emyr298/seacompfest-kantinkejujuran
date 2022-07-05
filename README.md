@@ -2,7 +2,10 @@
 Kantin Kejujuran is a simple e-commerce-like web project created for the selection of Software Engineering Academy (Compfest 2022) participants.
 
 ## Environment
+
+### Backend
 - NodeJS
+- MongoDB Database
 
 ## Installation and Usage
 Refer to README.md in kantinkejujuran-frontend for the front end and README.md in kantinkejujuran-backend for the back end.
