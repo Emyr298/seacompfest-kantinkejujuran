@@ -1,8 +1,8 @@
 import React from 'react';
 
-// Props: id, name, theme, text, isRequired
-
 /**
+ * Props: id, name, theme, text, filename, onChange
+ * 
  * Themes
  * - BlueTheme
  */
@@ -13,54 +13,28 @@ class FileInput extends React.Component {
     this.classes = `FileInput`;
     this.labelClasses = `FileInput-label ${this.props.theme}`;
     this.inputClasses = `FileInput-input`
-    
-    this.state = {
-      filename: 'Empty',
-    };
   }
   
   render() {
-    if (isRequired) {
-      return (
-        <div id={this.props.id} className={this.classes}>
-          <label
-            id={this.props.id + '-label'}
-            className={this.labelClasses}
-            for={this.props.id + '-input'}
-          >
-            {this.props.text}
-          </label>
-          <p>{this.state.filename}</p>
-          <input
-            id={this.props.id + '-input'}
-            class={this.inputClasses}
-            type="file"
-            name={this.props.name}
-            required
-          />
-        </div>
-      );
-    } else {
-      return (
-        <div id={this.props.id} className={this.classes}>
-          <label
-            id={this.props.id + '-label'}
-            className={this.labelClasses}
-            for={this.props.id + '-input'}
-          >
-            {this.props.text}
-          </label>
-          <p>{this.state.filename}</p>
-          <input
-            id={this.props.id + '-input'}
-            class={this.inputClasses}
-            type="file"
-            name={this.props.name}
-            required
-          />
-        </div>
-      );
-    }
+    return (
+      <div id={this.props.id} className={this.classes}>
+        <label
+          id={this.props.id + '-label'}
+          className={this.labelClasses}
+          htmlFor={this.props.id + '-input'}
+        >
+          {this.props.text}
+        </label>
+        <p>{this.props.filename}</p>
+        <input
+          id={this.props.id + '-input'}
+          className={this.inputClasses}
+          type="file"
+          name={this.props.name}
+          onChange={this.props.onChange}
+        />
+      </div>
+    );
   }
 }
 

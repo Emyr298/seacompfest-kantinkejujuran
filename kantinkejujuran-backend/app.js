@@ -9,6 +9,7 @@ const cors = require('cors');
 // Routers
 const registerRouter = require('./routes/register');
 const sessionRouter = require('./routes/session');
+const productRouter = require('./routes/product');
 const balanceRouter = require('./routes/balance');
 
 // Database
@@ -36,11 +37,11 @@ async function startUp() {
   // Routers
   app.use('/register', registerRouter);
   app.use('/session', sessionRouter);
+  app.use('/product', productRouter);
   app.use('/balance', balanceRouter);
   
-  
   // Error Handlers
-  app.use(function(err, req, res, next) {
+  app.use((err, req, res, next) => {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
     
