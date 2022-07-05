@@ -22,17 +22,17 @@ router.post('/',
   upload.single('productImage'),
   productMiddlewares.validateAddProduct,
   productMiddlewares.addProduct,
-  // productMiddlewares.addProductErrorHandler,
+  productMiddlewares.addProductErrorHandler,
 );
 
-// router.get('/:productId',
-//   productMw.getProduct,
-// );
+router.get('/:productId',
+  productMiddlewares.getProduct,
+);
 
-// router.delete('/:productId',
-//   userMw.checkLoggedIn,
-//   productMw.deleteProduct,
-// );
+router.delete('/:productId',
+  userMiddlewares.checkLoggedIn,
+  productMiddlewares.buyProduct,
+);
 
 router.use((err, req, res, next) => {
   res.locals.message = err.message;

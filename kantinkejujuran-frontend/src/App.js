@@ -119,7 +119,11 @@ class AppNoNavigate extends React.Component {
                 />
               } />
               <Route path="/" element={
-                <div></div>
+                <Products
+                  studentId={this.state.studentId}
+                  navigate={this.props.navigate}
+                  warningHandler={this.handleWarning}
+                />
               } />
               <Route path="/add-product" element={
                 <AddProduct

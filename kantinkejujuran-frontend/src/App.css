@@ -183,7 +183,8 @@ main {
 }
 
 /* Products */
-#products {
+#Products {
+  width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -191,8 +192,10 @@ main {
   justify-content: space-evenly;
 }
 
-#products-info {
+#ProductInfo {
+  width: 25%;
   max-width: 300px;
+  min-width: 300px;
   height: 450px;
   margin: 20px 10px 20px 20px;
   padding: 10px;
@@ -202,29 +205,35 @@ main {
   justify-content: space-evenly;
 }
 
-#products-info * {
+#ProductInfo * {
   width: 100%;
   margin-bottom: 10px;
 }
 
-#products-info .ProductImage {
+#ProductInfo .ProductImage {
   width: 100%;
   height: 200px;
   border: 3px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 
-#products-info p {
+#ProductInfo-desc {
   height: 50%;
   overflow-y: scroll;
 }
 
-#products-info .Button {
-  border-radius: 10px;
+#ProductInfo .Button {
+  border-radius: 10px !important;
 }
 
-#products-list {
-  width: calc(100% - 360px);
+#ProductInfo .ToggleButton {
+  border-radius: 10px !important;
+  cursor: default;
+}
+
+#ProductList {
+  /* width: calc(100% - 360px); */
+  width: 75%;
   min-width: 300px;
   height: 80%;
   margin: 20px 20px 20px 10px;
@@ -233,7 +242,7 @@ main {
   flex-direction: column;
 }
 
-#products-list-sort {
+#ProductList-sort {
   padding: 5px 10px 9px 10px;
   margin-bottom: 20px;
   
@@ -243,26 +252,26 @@ main {
   justify-content: space-evenly;
 }
 
-#products-list-sort label {
+#ProductList-sort label {
   width: 60px;
-  margin-right: 5px
+  margin-right: 5px;
 }
 
-#products-list-sort-data {
+#ProductList-sortData {
   width: calc(100% - 110px);
 }
 
-#products-list-contents {
+#ProductList-body {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   align-content: flex-start;
   overflow-y: scroll;
 }
 
-#products-list-contents .Container {
+#ProductList-body .Container {
   width: 125px;
   height: 150px;
   margin: 5px;
@@ -275,7 +284,7 @@ main {
   cursor: pointer;
 }
 
-#products-list-contents .ProductImage {
+#ProductList-body .ProductImage {
   width: 100%;
   height: 60%;
   
@@ -283,7 +292,7 @@ main {
   border-radius: 10px;
 }
 
-#Product-add {
+#Products-add {
   width: 40px;
   height: 40px;
   text-align: center;
@@ -461,11 +470,19 @@ main {
   height: 2rem;
   padding: 5px;
   
+  text-align: center;
+  
   border: none;
   border-radius: 5px;
+  
+  display: inline-block;
 }
 .ToggleButton:hover {
   cursor: pointer;
+}
+.ToggleButton-text {
+  height: 100%;
+  font-size: 0.875rem;
 }
 
 .ToggleButton.TransparentTheme.Off {

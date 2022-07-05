@@ -5,11 +5,12 @@ const balanceHandler = require('./balance');
 const { nextTick } = require('process');
 
 // Methot to validate get all products sorting
-function validateGetAllProducts(body) {
-  if (!body.sortBy || !body.sortDirection) return false;
+function validateGetAllProducts(query) {
+  if (!query.sortBy || !query.sortDirection) return false;
   
-  const validSortBy = (['name', 'created'].includes(body.sortBy));
-  const validSortDirection = (['ascending', 'descending'].includes(body.sortDirection));
+  const validSortBy = (['name', 'created'].includes(query.sortBy));
+  if (query.sortBy === 'name') query.sortBy = 'nameLowerCase';
+  const validSortDirection = (['ascending', 'descending'].includes(query.sortDirection));
   
   return validSortBy && validSortDirection;
 }
@@ -58,6 +59,7 @@ async function addProduct(name, price, image, desc) {
     },
     desc: desc,
     created: created,
+    nameLowerCase: name.toLowerCase()
   });
   
   await product.save();
@@ -68,16 +70,23 @@ async function deleteImage(image) {
     await fs.promises.unlink('./uploads/' + image.filename);
 }
 
-// Method to buy product
-async function buyProduct(id) {
-  const product = await db.Product.deleteOne({ id: id });
+// Method to get product data
+async function getProduct(id) {
+  const product = await db.Product.findOne({ id: id }).lean();
+  return product;
 }
 
-// // Test
-// async function test() {
-//   const product = await db.Product.findOne({}).lean();
-//   console.log(product.image.data.toString('hex'));
-// }
+// Method to buy product
+async function buyProduct(id) {
+  const product = await db.Product.findOne({ id: id }).lean();
+  
+  if (product) {
+    await db.Product.deleteOne({ id: id });
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /* Helper Methods */
 // Method to generate unique id -> TODO: 2 request at the same time, handle if math.random = 0
@@ -97,7 +106,8 @@ module.exports = {
   validateGetAllProducts,
   getAllProducts,
   validateAddProduct,
-  addProduct,
-  buyProduct,
   deleteImage,
+  addProduct,
+  getProduct,
+  buyProduct,
 };
